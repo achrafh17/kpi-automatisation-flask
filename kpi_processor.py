@@ -12,7 +12,7 @@ class KPIProcessor:
         
         df = pd.read_csv(file_path)
         df['Date'] = pd.to_datetime(df['Date'])
-        required_columns = ['Date', 'Entrepôt', 'Kilomètres_à_vide', 'Capacité_total_km_parcourus',
+        required_columns = [ 'Entrepôt', 'Kilomètres_à_vide', 'Capacité_total_km_parcourus',
                             'Stock_moyen','Sorties_annuelles', 'Surface_occupée', 'Surface_totale',
                             'Lignes_préparées','Heures_travaillées', 'Stock_physique','Stock_théorique',
                             'Clients_satisfaits','Total_clients_interrogés','Nombre_de_réclamations',
@@ -30,7 +30,7 @@ class KPIProcessor:
         Calcule les KPIs principaux (moyennes) et convertit le résultat en types Python.
         """
         kpis = {
-            'date': df['Date'].dt.strftime('%Y-%m-%d').iloc[0],
+         
             'Taux_de_livraison_à_temps': float(df['Nombre_de_livraisons_à_temps'].mean()/df['Nombre_total_de_livraisons'].mean()),
             'Coût_de_transport_par_unité': float(df['Coût_total_transport'].mean()/df['Nombre_unités_transportées'].mean()),
             'Taux de remplissage des véhicules': float(df['Volume_utilisé'].mean()/df['Capacité_totale'].mean()),
@@ -57,7 +57,7 @@ class KPIProcessor:
         """
         results = {}
         for kpi, value in kpis.items():
-            if kpi in self.iso_thresholds and kpi != 'date':
+            if kpi in self.iso_thresholds :
                 threshold = self.iso_thresholds[kpi]
                 # La comparaison peut renvoyer un numpy.bool_, on le convertit en bool
                 compliant = bool(threshold['min'] <= value <= threshold['max'])
