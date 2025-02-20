@@ -75,5 +75,6 @@ def upload_file():
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
-    app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # Par exemple, 16 MB max
-    app.run(debug=True)
+    app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
+    port = int(os.environ.get("PORT", 5000))
+    app.run(debug=True, host='0.0.0.0', port=port)
