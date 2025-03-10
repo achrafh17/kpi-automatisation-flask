@@ -4,8 +4,7 @@ from flask_cors import CORS
 from kpi_processor import KPIProcessor
 
 app = Flask(__name__)
-CORS(app, origins=["http://localhost:3000", "https://achrafh17.github.io/kpi-automatisation-frontend-react/"])
-
+CORS(app, origins="http://localhost:3000")
 # Autorise les requêtes du frontend React
 # Dossier pour stocker les fichiers uploadés
 UPLOAD_FOLDER = 'uploads'
