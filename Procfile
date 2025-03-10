@@ -1,3 +1,1 @@
-web: python app.py
-waitress-serve --listen=0.0.0.0:5000 app:app
-
+web: waitress-serve --listen=0.0.0.0:5000 app:app
