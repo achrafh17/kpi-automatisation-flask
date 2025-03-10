@@ -4,10 +4,7 @@ from flask_cors import CORS
 from kpi_processor import KPIProcessor
 
 app = Flask(__name__)
-CORS(app, origins=[
-    
-    "http://localhost:3000" 
-])
+CORS(app, origins=["http://localhost:3000/kpi-automatisation-frontend-react" ])
 
 
 UPLOAD_FOLDER = 'uploads'
