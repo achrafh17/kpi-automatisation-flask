@@ -5,7 +5,7 @@ from kpi_processor import KPIProcessor
 
 app = Flask(__name__)
 CORS(app, origins=[
-    "https://achrafh17.github.io/kpi-automatisation-frontend-react",
+    
     "http://localhost:3000" 
 ])
 
